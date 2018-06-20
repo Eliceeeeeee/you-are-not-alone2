@@ -4,7 +4,6 @@
 
 // React native and others libraries imports
 import React, { Component } from 'react';
-import { Font, AppLoading } from "expo";
 import { StyleSheet, Image } from 'react-native';
 import { Container, Content, View, Button, Left, Right, Icon, Card, CardItem, cardBody } from 'native-base';
 import { Actions } from 'react-native-router-flux';
@@ -23,21 +22,7 @@ export default class Home extends Component {
       	super(props);
       	this.state = { loading: true };
   	} 
-	async componentWillMount() {
-    	await Font.loadAsync({
-        	Roboto: require("native-base/Fonts/Roboto.ttf"),
-        	Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")
-    	});
-   	 this.setState({ loading: false });
-	}
   	render() {
-    	if (this.state.loading) {
-      		return (
-				<Container>
-					<AppLoading />
-				</Container>
-      		);
-  		}
 		var left = (
 			<Left style={{flex:1}}>
 				<Button onPress={() => this._sideMenuDrawer.open()} transparent>
